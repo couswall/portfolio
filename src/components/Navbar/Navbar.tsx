@@ -5,20 +5,14 @@ import { FiMoon } from "react-icons/fi";
 import { FiMenu, FiX } from "react-icons/fi";
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "@/src/context/ThemeProvider";
-
-export const navbarHeaders = [
-  { id: 1, name: "Home", href: "#home" },
-  { id: 2, name: "About", href: "#about" },
-  { id: 3, name: "Skills", href: "#skills" },
-  { id: 4, name: "Projects", href: "#projects" },
-];
+import { navbarHeaders } from "@components/Navbar/Navbar.constants";
 
 const Navbar = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   return (
     <header>
-      <nav className="w-full px-4 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between">
+      <nav className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 false">
         <div className="w-12 h-12 rounded-full cursor-pointer overflow-hidden">
           <Image src="/avatar.jpg" alt="avatar" width={100} height={100} />
         </div>
@@ -40,24 +34,33 @@ const Navbar = () => {
           </div>
 
           <button
-            className="md:hidden text-2xl text-black dark:text-white"
+            className="md:hidden cursor-pointer text-2xl text-black dark:text-white"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
-            {menuOpen ? <FiX /> : <FiMenu />}
+            <FiMenu />
           </button>
         </div>
+        <div
+          className={`md:hidden fixed top-0 bottom-0 w-64 h-screen bg-pink-200 dark:bg-gray-800 dark:text-white shadow-lg transition-transform duration-500
+          ${menuOpen ? "translate-x-0 right-0" : "translate-x-full right-0"}`}
+        >
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="cursor-pointer absolute top-6 right-6 text-2xl"
+          >
+            <FiX />
+          </button>
+          <ul className="flex flex-col gap-4 px-10 py-20">
+            {navbarHeaders.map((header) => (
+              <li key={header.id}>
+                <a href={header.href} onClick={() => setMenuOpen(false)}>
+                  {header.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
-      {menuOpen && (
-        <ul className="md:hidden flex flex-col gap-4 px-6 py-6 bg-white dark:bg-gray-900 dark:text-white shadow-lg">
-          {navbarHeaders.map((header) => (
-            <li key={header.id}>
-              <a href={header.href} onClick={() => setMenuOpen(false)}>
-                {header.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
     </header>
   );
 };
