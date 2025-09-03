@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${monstserrat.className}`}>
         <ThemeProvider>
-          <main className="flex flex-col gap-3 min-h-screen bg-white dark:bg-gray-900">
+          <main className="flex flex-col gap-10 min-h-screen bg-white dark:bg-gray-900">
             <Navbar />
             {children}
           </main>

@@ -12,7 +12,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   return (
     <header>
-      <nav className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 false">
+      <nav className="w-full  px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 false">
         <div className="w-12 h-12 rounded-full cursor-pointer overflow-hidden">
           <Image src="/avatar.jpg" alt="avatar" width={100} height={100} />
         </div>
@@ -24,7 +24,6 @@ const Navbar = () => {
           ))}
         </ul>
         <div className="flex items-center gap-4">
-          {/* Theme toggle */}
           <div onClick={toggleTheme}>
             {isDarkMode ? (
               <LuSun className="cursor-pointer text-black dark:text-white text-2xl" />
