@@ -40,7 +40,7 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className={`md:hidden fixed top-0 bottom-0 w-64 h-screen bg-pink-200 dark:bg-gray-800 dark:text-white shadow-lg transition-transform duration-500
+          className={`md:hidden fixed top-0 bottom-0 w-64 h-screen bg-pink-200 dark:bg-gray-800 dark:text-white shadow-lg transition-transform duration-500 z-2
           ${menuOpen ? "translate-x-0 right-0" : "translate-x-full right-0"}`}
         >
           <button

@@ -54,8 +54,11 @@ export const ProjectCard: React.FC<IProjectCardProps> = ({
         </div>
       </div>
       <div className="flex flex-wrap gap-2">
-        {stack.map((item) => (
-          <span className="bg-slate-400 text-gray-800 px-2 py-1 rounded-full text-sm dark:bg-gray-700 dark:text-gray-400">
+        {stack.map((item, index) => (
+          <span
+            key={index}
+            className="bg-slate-400 text-gray-800 px-2 py-1 rounded-full text-sm dark:bg-gray-700 dark:text-gray-400"
+          >
             {item}
           </span>
         ))}
