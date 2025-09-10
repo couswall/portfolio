@@ -10,7 +10,7 @@ const Introduction = () => {
   return (
     <section
       id="introduction"
-      className="w-full px-[4%] md:px-[12%] scroll-mt-44 text-center mx-auto mb-3"
+      className="w-full px-[4%] md:px-[12%] scroll-mt-44 text-center mx-auto mb-28"
     >
       <div className="flex flex-col gap-5 items-center justify-center">
         {/* IMAGE */}
