@@ -9,6 +9,30 @@
 @theme inline {
   --color-background: var(--background);
   --font-montserrat: var(--font-montserrat);
+  --animate-bounce-smooth: smoothBounce 1.5s cubic-bezier(0.25, 0.8, 0.5, 1);
+
+  @keyframes smoothBounce {
+    0%,
+    15% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(-30px);
+      opacity: 1;
+    }
+    60% {
+      transform: translateY(-15px);
+      opacity: 1;
+    }
+  }
 }
 
 body {
