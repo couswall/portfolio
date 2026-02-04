@@ -3,13 +3,19 @@
 
 :root {
   --background: #fefefe;
+  --background-dark: #111827;
   --font-montserrat: "Montserrat", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @theme inline {
   --color-background: var(--background);
   --font-montserrat: var(--font-montserrat);
   --animate-bounce-smooth: smoothBounce 1.5s cubic-bezier(0.25, 0.8, 0.5, 1);
+  --animate-scroll: scroll 20s linear infinite;
 
   @keyframes smoothBounce {
     0%,
@@ -33,9 +39,54 @@
       opacity: 1;
     }
   }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 body {
   background: var(--background);
   font-family: var(--font-montserrat);
+}
+
+.dark body {
+  background: var(--background-dark);
+}
+
+/* Code fall animation - outside @theme for inline style usage */
+@keyframes codeFall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
+/* 3D transform utilities for scroll animations */
+.rotate-x-90 {
+  transform: perspective(1000px) rotateX(90deg);
+}
+.rotate-x-0 {
+  transform: perspective(1000px) rotateX(0deg);
+}
+.rotate-y-90 {
+  transform: perspective(1000px) rotateY(90deg);
+}
+.rotate-y-0 {
+  transform: perspective(1000px) rotateY(0deg);
 }

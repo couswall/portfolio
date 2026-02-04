@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Navbar from "@components/Navbar/Navbar";
+import BackgroundBlur from "@components/BackgroundBlur/BackgroundBlur";
 import ThemeProvider from "../context/ThemeProvider";
 import "./globals.css";
 
@@ -23,7 +24,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${monstserrat.className}`}>
         <ThemeProvider>
-          <div className="flex flex-col gap-10 min-h-screen bg-white dark:bg-gray-900">
+          {/* <BackgroundBlur /> */}
+          <div className="relative flex flex-col gap-10 min-h-screen">
             <Navbar />
             <main className="flex flex-col gap-10">{children}</main>
           </div>
