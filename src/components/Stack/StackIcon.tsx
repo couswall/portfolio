@@ -2,45 +2,55 @@
 import { IconType } from "react-icons";
 import React, { useState } from "react";
 
-export interface IStackIconProps {
-  skill: ISkill;
-}
-
 export interface ISkill {
   id: number;
   name: string;
   icon: IconType;
-  hoverColor: string;
+  color: string;
+}
+
+export interface IStackIconProps {
+  skill: ISkill;
 }
 
 const StackIcon: React.FC<IStackIconProps> = ({ skill }) => {
-  const [showNameTag, setShowNameTag] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+
   return (
-    <div className="group relative inline-block" key={skill.id}>
-      {showNameTag && (
-        <div className="animate-bounce-smooth absolute -top-10 left-5 rotate-6 whitespace-nowrap z-3 rounded bg-black px-3 py-1 text-sm text-white shadow-xl">
-          {skill.name}
-        </div>
-      )}
+    <div
+      className="group relative flex flex-col items-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Tooltip */}
       <div
-        className={
-          "p-4 border-2 rounded-full transition-all duration-500 transform dark:border-white hover:scale-125 hover:-translate-y-1 hover:rotate-45"
-        }
-        onMouseEnter={() => setShowNameTag(true)}
-        onMouseLeave={() => setShowNameTag(false)}
+        className={`absolute -top-10 px-3 py-1.5 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs font-medium whitespace-nowrap shadow-lg transition-all duration-300 ${
+          isHovered ? "opacity-100 -translate-y-1" : "opacity-0 translate-y-1 pointer-events-none"
+        }`}
+      >
+        {skill.name}
+        {/* Tooltip arrow */}
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-gray-900 dark:bg-white rotate-45" />
+      </div>
+
+      {/* Icon Container */}
+      <div
+        className="relative p-4 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:border-violet-500/50 dark:hover:border-violet-500/50 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
         style={{
-          borderColor: showNameTag ? skill.hoverColor : undefined,
-          backgroundColor: showNameTag
-            ? `${skill.hoverColor}20`
-            : "transparent",
+          backgroundColor: isHovered ? `${skill.color}15` : undefined,
+          borderColor: isHovered ? `${skill.color}50` : undefined,
         }}
       >
         <skill.icon
-          className={`
-            text-4xl dark:text-white transition-colors duration-500`}
-          style={{ color: showNameTag ? skill.hoverColor : undefined }}
+          className="text-3xl md:text-4xl text-gray-700 dark:text-gray-300 transition-colors duration-300"
+          style={{ color: isHovered ? skill.color : undefined }}
         />
       </div>
+
+      {/* Skill name below icon (visible on mobile) */}
+      <span className="mt-2 text-xs text-gray-500 dark:text-gray-400 font-medium md:hidden">
+        {skill.name}
+      </span>
     </div>
   );
 };
