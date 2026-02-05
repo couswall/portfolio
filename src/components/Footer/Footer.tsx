@@ -9,7 +9,7 @@ const footerLinks = [
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  // { name: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
@@ -32,7 +32,7 @@ const Footer = () => {
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     e.preventDefault();
     if (href === "#") {
@@ -105,10 +105,10 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
             <div className="flex flex-col gap-2 text-sm text-gray-400">
               <a
-                href="mailto:andre@example.com"
+                href="mailto:andreignorosa@gmail.com"
                 className="hover:text-violet-400 transition-colors"
               >
-                andre@example.com
+                andreignorosa@gmail.com
               </a>
               <p>Available Worldwide</p>
             </div>
@@ -128,12 +128,9 @@ const Footer = () => {
       <div className="border-t border-gray-800">
         <div className="max-w-7xl px-6 md:px-12 mx-auto py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-            <p>
-              © {currentYear} Andre Ignorosa. All rights reserved.
-            </p>
+            <p>© {currentYear} Andre Ignorosa. All rights reserved.</p>
             <p className="flex items-center gap-1.5">
-              Made with{" "}
-              <FaHeart className="text-violet-500 animate-pulse" />{" "}
+              Made with <FaHeart className="text-violet-500 animate-pulse" />{" "}
               using Next.js & Tailwind
             </p>
           </div>

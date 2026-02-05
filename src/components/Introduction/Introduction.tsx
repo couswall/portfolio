@@ -37,7 +37,8 @@ const Introduction = () => {
           {/* Description */}
           <ScrollReveal variant="fade-up" delay={200}>
             <p className="text-gray-600 dark:text-gray-400 text-lg max-w-md">
-              I build interactive websites and software that deliver seamless experiences across all devices.
+              I build interactive websites and software that deliver seamless
+              experiences across all devices.
             </p>
           </ScrollReveal>
 
@@ -58,14 +59,22 @@ const Introduction = () => {
           {/* Buttons */}
           <ScrollReveal variant="fade-up" delay={400}>
             <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-3">
-              <button className="px-6 py-3 rounded-xl flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-medium transition-all hover:shadow-lg hover:shadow-violet-500/25 hover:-translate-y-0.5">
+              <a
+                href="mailto:andreignorosa@gmail.com"
+                className="px-6 py-3 rounded-xl flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-medium transition-all hover:shadow-lg hover:shadow-violet-500/25 hover:-translate-y-0.5"
+              >
                 Contact Me
                 <MdOutlineMailOutline className="text-xl" />
-              </button>
-              <button className="px-6 py-3 rounded-xl flex items-center justify-center gap-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium hover:border-violet-500 dark:hover:border-violet-400 hover:text-violet-600 dark:hover:text-violet-400 transition-all hover:-translate-y-0.5">
+              </a>
+              <a
+                download="fullstack_resume"
+                href="/Fullstack-Developer-Andre-Ignorosa.pdf
+              "
+                className="px-6 py-3 rounded-xl cursor-pointer flex items-center justify-center gap-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium hover:border-violet-500 dark:hover:border-violet-400 hover:text-violet-600 dark:hover:text-violet-400 transition-all hover:-translate-y-0.5"
+              >
                 Resume
                 <GrDownload className="text-lg" />
-              </button>
+              </a>
             </div>
           </ScrollReveal>
 
@@ -93,7 +102,11 @@ const Introduction = () => {
         </div>
 
         {/* RIGHT COLUMN - visible only on desktop */}
-        <ScrollReveal variant="fade-left" delay={300} className="hidden md:block">
+        <ScrollReveal
+          variant="fade-left"
+          delay={300}
+          className="hidden md:block"
+        >
           <div className="relative w-80 h-80 lg:w-[420px] lg:h-[420px] flex-shrink-0">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-violet-500/50 dark:bg-violet-400/40 rounded-full blur-3xl animate-pulse z-0" />
             <Image

@@ -11,12 +11,10 @@ export default function Home() {
   return (
     <>
       <Introduction />
-      {/* <SkillsCarousel /> */}
-      {/* <About /> */}
+      <SkillsCarousel />
       <Stack />
       <Experience />
       <Projects />
-      <Contact />
       <Footer />
     </>
   );

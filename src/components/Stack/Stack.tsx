@@ -1,5 +1,12 @@
 "use client";
-import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaCss3,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { SiTypescript, SiRedux, SiPrisma } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";

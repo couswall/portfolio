@@ -14,6 +14,16 @@ export const ThemeContext = createContext<ThemeContextType>({
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
   const toggleTheme = () => setIsDarkMode((prev) => !prev);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
   useEffect(() => {
     const root = window.document.documentElement;
     if (isDarkMode) {
