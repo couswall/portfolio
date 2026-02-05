@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 
@@ -22,10 +23,19 @@ export const ProjectCard: React.FC<IProjectCardProps> = ({
   repository,
   category = "Project",
 }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div className="group relative h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-violet-500/50 dark:hover:border-violet-500/50 transition-colors">
+    <div
+      className="group relative h-[400px] w-full rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-violet-500/50 dark:hover:border-violet-500/50 transition-colors cursor-pointer"
+      onClick={() => setIsFlipped(!isFlipped)}
+    >
       {/* Front Side - Image with overlay */}
-      <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 group-hover:opacity-0 ${
+          isFlipped ? "opacity-0" : "opacity-100"
+        }`}
+      >
         {/* Project Image */}
         <Image
           src={imgSrc}
@@ -63,8 +73,12 @@ export const ProjectCard: React.FC<IProjectCardProps> = ({
         </div>
       </div>
 
-      {/* Back Side - Details (shown on hover) */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-900 p-6 flex flex-col invisible opacity-0 transition-all duration-500 group-hover:visible group-hover:opacity-100">
+      {/* Back Side - Details (shown on hover/tap) */}
+      <div
+        className={`absolute inset-0 bg-white dark:bg-gray-900 p-6 flex flex-col transition-all duration-500 group-hover:visible group-hover:opacity-100 ${
+          isFlipped ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
         {/* Header */}
         <div className="flex justify-between items-start mb-4">
           <span className="px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 text-xs font-medium">
