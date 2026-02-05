@@ -64,7 +64,7 @@ export const ProjectCard: React.FC<IProjectCardProps> = ({
       </div>
 
       {/* Back Side - Details (shown on hover) */}
-      <div className="absolute inset-0 bg-white dark:bg-gray-900 p-6 flex flex-col opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+      <div className="absolute inset-0 bg-white dark:bg-gray-900 p-6 flex flex-col invisible opacity-0 transition-all duration-500 group-hover:visible group-hover:opacity-100">
         {/* Header */}
         <div className="flex justify-between items-start mb-4">
           <span className="px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 text-xs font-medium">
