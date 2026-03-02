@@ -40,7 +40,8 @@ export const experiences: IExperience[] = [
     description:
       "Building scalable frontend solutions for a B2B SaaS platform with real-time multi-tenant dashboards.",
     achievements: [
-      "Developed core frontend architecture using React and TypeScript for a new B2B SaaS product",
+      "Developed core frontend architecture using Next.js, React, and TypeScript for a new B2B SaaS product, leveraging file-based routing to standardize navigation and improve long-term scalability",
+      "Implemented SSR and SSG strategies in Next.js to optimize performance and enable SEO-ready content delivery across key product surfaces",
       "Reduced bug reports by 50% through code reviews and clean code standards",
       "Implemented real-time data syncing with Redux Toolkit for enterprise dashboards",
     ],
